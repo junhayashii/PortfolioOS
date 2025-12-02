@@ -99,7 +99,7 @@ export const PROJECTS = [
       "Dark/Light mode with persistent theme preference",
     ],
     image: Cashly,
-    links: { demo: "#", code: "#" },
+    links: { demo: "#", code: "https://github.com/junhayashii/Cashly" },
   },
   {
     id: 2,
@@ -117,7 +117,7 @@ export const PROJECTS = [
       "Responsive design that adapts to all screen sizes",
     ],
     image: Portfolio,
-    links: { demo: "#", code: "#" },
+    links: { demo: "#", code: "https://github.com/junhayashii/PortfolioOS" },
   },
 ];
 
@@ -208,11 +208,6 @@ export const INITIAL_EMAILS = [
             <strong>portfolio-os</strong> — TypeScript / React
             <br />
             The source code for this OS-style portfolio.
-          </p>
-          <p>
-            <strong>automation-tools</strong> — Python
-            <br />A collection of scripts for automating tasks (including some
-            BigID helpers).
           </p>
           <p>
             <strong>cashly</strong> — React / Supabase

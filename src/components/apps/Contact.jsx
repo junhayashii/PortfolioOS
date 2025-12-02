@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "../ThemeContext";
+import emailjs from "@emailjs/browser";
 
 import { INITIAL_EMAILS, CONTACT_INFO } from "../../config/data";
 import {
@@ -10,7 +11,6 @@ import {
   Search,
   Send,
   SquarePen,
-  Trash2,
   X,
 } from "lucide-react";
 
@@ -37,36 +37,51 @@ export const ContactApp = () => {
     setSelectedEmailId(null);
   };
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
 
-    const newEmail = {
-      id: Date.now(),
-      folder: "sent",
-      from: "Me",
-      to: "Alex Dev",
-      role: "Visitor",
+    // EmailJS に送るデータ
+    const templateParams = {
+      from_email: draftEmail,
       subject: draftSubject || "(No Subject)",
-      date: new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      avatar: "ME",
-      avatarColor: "bg-emerald-600",
-      read: true,
-      body: (
-        <div className="whitespace-pre-wrap">
-          {draftBody}
-          {draftEmail && (
-            <div className="mt-6 pt-4 border-t border-dashed opacity-60 text-xs font-mono">
-              Sent from: {draftEmail}
-            </div>
-          )}
-        </div>
-      ),
+      message: draftBody,
+      to_name: "Jun Hayashi",
     };
 
-    setTimeout(() => {
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      // フロントのUIはそのまま更新（送信済みフォルダに入る）
+      const newEmail = {
+        id: Date.now(),
+        folder: "sent",
+        from: "Me",
+        to: "Jun Hayashi",
+        subject: draftSubject || "(No Subject)",
+        date: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+        avatar: "ME",
+        avatarColor: "bg-emerald-600",
+        read: true,
+        body: (
+          <div className="whitespace-pre-wrap">
+            {draftBody}
+            {draftEmail && (
+              <div className="mt-6 pt-4 border-t border-dashed opacity-60 text-xs font-mono">
+                Sent from: {draftEmail}
+              </div>
+            )}
+          </div>
+        ),
+      };
+
       setEmails((prev) => [...prev, newEmail]);
       setIsComposing(false);
       setSelectedFolder("sent");
@@ -74,7 +89,10 @@ export const ContactApp = () => {
       setDraftSubject("");
       setDraftBody("");
       setDraftEmail("");
-    }, 800);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      alert("Failed to send email. Please try again later.");
+    }
   };
 
   const handleReply = () => {
@@ -383,7 +401,7 @@ export const ContactApp = () => {
                   </span>
                   <input
                     type="text"
-                    value="Alex Dev <alex@portfolio.os>"
+                    value="Jun Hayashi <kevin.jun.hayashi@gmail.com>"
                     disabled
                     className={`flex-1 py-2 bg-transparent outline-none ${
                       isDark ? "text-slate-300" : "text-slate-700"
