@@ -2,7 +2,7 @@
   "name": "portfolioos",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://junhayashii.github.io/PortfolioOS",
+  "homepage": "https://junhayashii.github.io/PortfolioOS/",
   "type": "module",
   "scripts": {
     "dev": "vite",
