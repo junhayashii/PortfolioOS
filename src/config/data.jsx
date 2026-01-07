@@ -2,6 +2,7 @@ import { Gamepad, Globe, Coffee, Music, Linkedin, Github } from "lucide-react";
 import ISFS from "../assets/certificates/exin_isfs.png";
 import PDPF from "../assets/certificates/exin_pdpf.png";
 import Monely from "../assets/projects/monely_dashboard.png";
+import Flist from "../assets/projects/flist.png";
 import Portfolio from "../assets/projects/portfolio.png";
 import ProfileAvatar from "/3dcube.png";
 
@@ -114,6 +115,26 @@ export const PROJECTS = [
     links: {
       demo: "https://junhayashii.github.io/PortfolioOS/",
       code: "https://github.com/junhayashii/PortfolioOS",
+    },
+  },
+  {
+    id: 3,
+    title: "Flist",
+    shortDescription:
+      "A minimalist task & list management app focused on clarity, speed, and daily execution.",
+    fullDescription:
+      "Flist is a lightweight productivity app designed to manage tasks and lists with maximum clarity and minimal friction. Instead of complex workflows or overloaded features, Flist focuses on fast input, clear prioritization, and a distraction-free UI. The app is built with a strong emphasis on UX simplicity, clean state management, and responsive design, making it suitable for daily personal use as well as as a foundation for future productivity features.",
+    tags: ["React", "Vite", "JavaScript", "Python", "Django"],
+    features: [
+      "Simple and intuitive block-based task management",
+      "Fast task creation and editing with minimal UI friction",
+      "Clear visual hierarchy for priorities and task states",
+      "Clean, scalable component architecture for future expansion",
+    ],
+    image: Flist,
+    links: {
+      demo: "https://github.com/junhayashii/flist",
+      code: "https://github.com/junhayashii/flist",
     },
   },
 ];
