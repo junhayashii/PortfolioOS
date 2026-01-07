@@ -1,7 +1,7 @@
 import { Gamepad, Globe, Coffee, Music, Linkedin, Github } from "lucide-react";
 import ISFS from "../assets/certificates/exin_isfs.png";
 import PDPF from "../assets/certificates/exin_pdpf.png";
-import Cashly from "../assets/projects/cashly.png";
+import Monely from "../assets/projects/monely_dashboard.png";
 import Portfolio from "../assets/projects/portfolio.png";
 import ProfileAvatar from "/3dcube.png";
 
@@ -77,29 +77,23 @@ export const EDUCATION = [
 export const PROJECTS = [
   {
     id: 1,
-    title: "Cashly",
+    title: "Monely",
     shortDescription:
       "A modern personal finance app that helps users track expenses, control budgets, and visualize their money flow.",
     fullDescription:
-      "Cashly is a clean and intuitive personal finance management tool designed to help individuals understand and optimize their spending habits. Users can log expenses, categorize transactions, create monthly budgets, and analyze trends through interactive charts. The app features real-time updates, smart spending insights, and seamless syncing across devices, making financial tracking simple and enjoyable.",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "TailwindCSS",
-      "Pluggy",
-      "Stripe",
-    ],
+      "Monely is a clean and intuitive personal finance management tool designed to help individuals understand and optimize their spending habits. Users can log expenses, categorize transactions, create monthly budgets, and analyze trends through interactive charts. The app features real-time updates, smart spending insights, and seamless syncing across devices, making financial tracking simple and enjoyable.",
+    tags: ["Next.js", "TypeScript", "Supabase", "TailwindCSS"],
     features: [
       "Expense and income tracking with budget support",
       "Interactive charts for spending trends and cash flow",
-      "Automated bank transaction syncing via Pluggy",
-      "Stripe subscription payments for premium features",
       "Secure cloud sync backed by Supabase",
       "Dark/Light mode with persistent theme preference",
     ],
-    image: Cashly,
-    links: { demo: "#", code: "https://github.com/junhayashii/Cashly" },
+    image: Monely,
+    links: {
+      demo: "https://monely-nine.vercel.app/",
+      code: "https://github.com/junhayashii/Monely",
+    },
   },
   {
     id: 2,
@@ -117,7 +111,10 @@ export const PROJECTS = [
       "Responsive design that adapts to all screen sizes",
     ],
     image: Portfolio,
-    links: { demo: "#", code: "https://github.com/junhayashii/PortfolioOS" },
+    links: {
+      demo: "https://junhayashii.github.io/PortfolioOS/",
+      code: "https://github.com/junhayashii/PortfolioOS",
+    },
   },
 ];
 
@@ -210,7 +207,7 @@ export const INITIAL_EMAILS = [
             The source code for this OS-style portfolio.
           </p>
           <p>
-            <strong>cashly</strong> — React / Supabase
+            <strong>Monely</strong> — React / Supabase
             <br />A personal project focused on real-time analytics & financial
             dashboards.
           </p>
